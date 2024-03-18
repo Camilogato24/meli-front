@@ -1,0 +1,42 @@
+@use "./../../assets/sass/variables.sass"
+
+.listSearch 
+	@include variables.container
+	gap: 0 1rem
+	.item 
+		position: relative
+		display: grid
+		grid-template-columns: auto 1fr 1fr
+		background-color: variables.$white
+		grid-column: 2 / span 10
+		margin: 0px 50px
+		&::after
+			content: ''
+			position: absolute
+			bottom: 0
+			width: calc(100% - (variables.$marginBig * 2))
+			left: variables.$marginBig
+			right: variables.$marginBig
+			height: 2px
+			border: thin solid #eee
+		img
+			width: variables.$imgSize
+			height: variables.$imgSize
+			object-fit: cover
+			margin: variables.$marginSmall
+		.detailItem
+			padding-top: variables.$marginBig
+			.price
+				font-size: variables.$sizeTitle
+				margin-bottom: variables.$marginBig
+				img 
+					width: 20px
+					height: 20px
+					margin: 0 10px
+			.title 
+				font-size: variables.$sizeParagraph
+		.cityItem
+			display: flex
+			align-items: baseline
+			justify-content: center
+			padding-top: variables.$marginBig
