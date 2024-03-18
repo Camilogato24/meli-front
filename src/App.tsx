@@ -3,7 +3,6 @@ import './App.sass'
 import RoutesComponent from './routes/routes'
 import { queryClient } from './query-client';
 
-
 function App() {
 
   return (

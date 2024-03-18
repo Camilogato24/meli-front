@@ -1,4 +1,5 @@
 export interface SearchResponse {
     success: boolean;
-    items: any[];
+    items: any[] | null;
+    categories: string[];
 }

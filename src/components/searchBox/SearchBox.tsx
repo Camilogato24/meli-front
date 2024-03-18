@@ -1,12 +1,11 @@
 import React from 'react'
 import { signal } from "@preact/signals-react"
+import { useNavigate } from 'react-router-dom'
 import logo from "./../../assets/img/logo.png"
 import search from "./../../assets/img/search.png"
-import { useNavigate } from 'react-router-dom'
 import "./SearchBox.sass"
 
 const paramSearch = signal("")
-
 
 const SearchBox: React.FC = () => {
     const navigate = useNavigate();
@@ -14,12 +13,10 @@ const SearchBox: React.FC = () => {
     const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         navigate(`/items?search=${paramSearch.value}`);
-
     }
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         paramSearch.value = event.target.value;
-    }
-
+    }    
     return (
         <header>
             <img src={logo} alt="Meli logo" />
@@ -30,6 +27,7 @@ const SearchBox: React.FC = () => {
                 </button>
             </form>
         </header>
+        
     )
 }
 
