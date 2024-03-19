@@ -1,7 +1,3 @@
-export interface BreadcrumbProps {
-  categories: string[];
-}
-
 export interface ItemMinified {
   author: Author;
   item: Item;

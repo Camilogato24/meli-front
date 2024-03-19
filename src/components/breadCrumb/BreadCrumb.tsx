@@ -8,10 +8,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ categories }) => {
     <nav aria-label="breadcrumb" className='breadcrumbContainer'>
       <ol className="breadcrumb">
         {categories.map((category, index) => (
-          <li key={index} className="breadcrumb-item">
-            {category}
-            {index !== categories.length - 1 && <span className="breadcrumb-divider">{' > '}</span>}
-          </li>
+          <><li className="breadcrumb-item">
+            Categorías
+            <span className="breadcrumb-divider">{' > '}</span>
+          </li><li className="breadcrumb-item">
+              {categories[0]}
+            </li></>
         ))}
       </ol>
     </nav>

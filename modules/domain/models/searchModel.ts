@@ -20,6 +20,7 @@ export interface Item {
   picture?: string;
   condition?: string;
   free_shipping?: boolean;
+  location: string;
 }
 export interface Price {
   currency: string;

@@ -1,0 +1,50 @@
+@use "./../../assets/sass/variables.sass"
+
+main
+    display: grid
+    grid-template-columns: repeat(12, 1fr)
+    gap: 1rem
+    padding: 10px 50px
+    article
+        grid-column: 2 / span 10
+        background: #FFF
+        display: grid
+        grid-template-columns: repeat(10, 1fr)
+        gap: 1rem
+        .articleDescription 
+            grid-column: span 7
+            section
+                img 
+                    width: 100%
+                    min-width: 680px
+                div
+                    margin-left: variables.$marginBig
+                h2
+                    font-size: 28px
+                    color: variables.$black
+                    margin-bottom: variables.$marginBig
+                p
+                    font-size: 16px
+                    color: variables.$gray-hard
+                    margin-bottom: variables.$marginBig
+        .articlePrice
+            grid-column: span 3
+            section
+                margin-top: variables.$marginBig
+                h5
+                    font-size: variables.$sizeBreadbrumb
+                    margin-bottom: variables.$marginSmall
+                h3
+                   font-size: variables.$sizeTitle
+                   margin-bottom: variables.$marginBig
+                h1
+                    font-size: variables.$sizePriceTitle
+                    margin-bottom: variables.$marginBig
+                button
+                    background-color: variables.$blue
+                    border: none
+                    color: variables.$white
+                    width: 100%
+                    max-width: 220px
+                    padding: 15px 0
+                    border-radius: 4px

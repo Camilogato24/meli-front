@@ -3,14 +3,14 @@
 .listSearch 
 	@include variables.container
 	gap: 0 1rem
+	padding: 0px 50px
 	.item 
 		position: relative
 		display: grid
 		grid-template-columns: auto 1fr 1fr
 		background-color: variables.$white
 		grid-column: 2 / span 10
-		margin: 0px 50px
-		&::after
+		&:not(:last-child)::after
 			content: ''
 			position: absolute
 			bottom: 0
@@ -24,6 +24,7 @@
 			height: variables.$imgSize
 			object-fit: cover
 			margin: variables.$marginSmall
+			border-radius: 4px
 		.detailItem
 			padding-top: variables.$marginBig
 			.price
