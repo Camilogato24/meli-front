@@ -11,11 +11,12 @@ export const formatPriceDetail = (amount: number | undefined) => {
   return amount?.toLocaleString("es-AR");
 };
 
-
 export const formatDecimals = (decimals: number | undefined): string => {
   if (decimals === undefined || decimals === null) {
     return "00"; 
   }
-  const formattedDecimals = decimals < 10 ? `0${decimals}` : decimals.toString();
-  return formattedDecimals;
+    if (Number.isInteger(decimals) && decimals === 0) {
+    return "00";
+  }
+  return decimals.toFixed(2).slice(-2);
 }
