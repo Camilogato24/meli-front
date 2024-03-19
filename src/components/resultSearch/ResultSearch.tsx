@@ -25,15 +25,17 @@ const ResultSearchComponent: React.FC = () => {
   if (resultSearch?.isPending) return <div className='isLoading'><p>Cargando...</p></div>
   if (resultSearch?.isFetching) return <div className='isLoading'><p>Refrescando...</p></div>
   if (resultSearch.isError) {
-    return <span>Error: {resultSearch.error.message}</span>
+    return <p>Error: {resultSearch.error.message}</p>
   }
   return (
     <div>
       <Breadcrumb categories={resultSearch.data.categories} />
-      <div className='listSearch'>
+      <section className='listSearch'>
         {resultSearch.data.items?.map(item => (
           <div key={item.id} className="item" onClick={() => handleItemClick(item)}>
-            <img src={item.picture} alt={item.title} />
+            <figure>
+              <img src={item.picture} alt={item.title} />
+            </figure>
             <div className='detailItem'>
               <h2 
                 className='price'>
@@ -49,7 +51,7 @@ const ResultSearchComponent: React.FC = () => {
             </div>
           </div>
         ))}
-      </div>
+      </section>
     </div>
   )
 }
