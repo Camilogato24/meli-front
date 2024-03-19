@@ -4,6 +4,7 @@ import { useDetailProduct } from "./../../hooks/useDetailProduct";
 import { configVars } from '../../../config';
 import { formatPrice } from '../../helpers';
 import "./DetailProduct.sass"
+import BreadcrumbDetail from '../breadCrumbDetail/BreadCrumbDetail';
 
 const DetailProduct: React.FC = () => {
   const { id } = useParams();
@@ -17,6 +18,7 @@ const DetailProduct: React.FC = () => {
   }
   return (
     <main>
+      <BreadcrumbDetail categories={detailProduct?.data?.data?.item?.categories || []} />
       <article>
         <div className='articleDescription'>
           <section>
