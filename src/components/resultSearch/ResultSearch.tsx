@@ -22,9 +22,8 @@ const ResultSearchComponent: React.FC = () => {
     navigate(`/items/${item.id}`);
   };
 
-  if (resultSearch.isPending) {
-    return <div className='listSearch'>Loading...</div>
-  }
+  if (resultSearch?.isPending) return <div className='isLoading'><p>Cargando...</p></div>
+  if (resultSearch?.isFetching) return <div className='isLoading'><p>Refrescando...</p></div>
   if (resultSearch.isError) {
     return <span>Error: {resultSearch.error.message}</span>
   }

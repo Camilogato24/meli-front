@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom';
 import { useDetailProduct } from "./../../hooks/useDetailProduct";
 import { configVars } from '../../../config';
-import { formatDecimals, formatPrice, formatPriceDetail } from '../../helpers';
+import { formatDecimals, formatPriceDetail } from '../../helpers';
 import BreadcrumbDetail from '../breadCrumbDetail/BreadCrumbDetail';
 import "./DetailProduct.sass"
 
@@ -10,9 +10,9 @@ const DetailProduct: React.FC = () => {
   const { id } = useParams();
   const { detailProduct } = useDetailProduct(id)
 
-  if (detailProduct?.isPending) {
-    return <div className='listSearch'>Loading...</div>
-  }
+  if (detailProduct?.isPending) return <div className='isLoading'><p>Cargando...</p></div>
+  if (detailProduct?.isFetching) return <div className='isLoading'><p>Refrescando...</p></div>
+
   if (detailProduct?.isError) {
     return <span>Error: {detailProduct.error.message}</span>
   }
@@ -37,7 +37,7 @@ const DetailProduct: React.FC = () => {
         </div>
         <div className='articlePrice'>
           <section>
-            <div>
+            <div className='articlePriceDescription'>
               <h5>
                 {detailProduct?.data.data.item.condition} - {detailProduct?.data.data.item.sold_quantity}
               </h5>
@@ -57,6 +57,7 @@ const DetailProduct: React.FC = () => {
       </article>
     </main>
   )
+
 }
 
 export default DetailProduct

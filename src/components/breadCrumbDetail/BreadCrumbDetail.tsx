@@ -4,7 +4,7 @@ import "./BreadCrumbDetail.sass";
 
 const BreadcrumbDetail: React.FC<BreadcrumbProps> = ({ categories }) => {
   return (
-    <section className='breadcrumbDetail'>
+    <nav className='breadcrumbDetail'>
        <ul>
         {categories.map((category, index) => (
           <li key={index}>
@@ -13,7 +13,7 @@ const BreadcrumbDetail: React.FC<BreadcrumbProps> = ({ categories }) => {
           </li>
         ))}
       </ul>
-    </section>
+    </nav>
   );
 };
 
