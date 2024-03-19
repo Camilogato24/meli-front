@@ -2,9 +2,9 @@ import React from 'react'
 import { useParams } from 'react-router-dom';
 import { useDetailProduct } from "./../../hooks/useDetailProduct";
 import { configVars } from '../../../config';
-import { formatPrice } from '../../helpers';
-import "./DetailProduct.sass"
+import { formatDecimals, formatPrice, formatPriceDetail } from '../../helpers';
 import BreadcrumbDetail from '../breadCrumbDetail/BreadCrumbDetail';
+import "./DetailProduct.sass"
 
 const DetailProduct: React.FC = () => {
   const { id } = useParams();
@@ -37,24 +37,20 @@ const DetailProduct: React.FC = () => {
         </div>
         <div className='articlePrice'>
           <section>
-            <h5>
-              {detailProduct?.data.data.item.condition} - {detailProduct?.data.data.item.sold_quantity}
-            </h5>
-            <h3>
-              {detailProduct?.data.data.item.title}
-            </h3>
-            <h1>
-              {detailProduct?.data.data.item.price.amount}
-              <small>
-                {detailProduct?.data.data.item.price.decimals}
-              </small>
-            </h1>
-            <h3>
-            {formatPrice(
-                detailProduct?.data.data.item.price.amount,
-                detailProduct?.data.data.item.price.decimals)
-              }
-            </h3>
+            <div>
+              <h5>
+                {detailProduct?.data.data.item.condition} - {detailProduct?.data.data.item.sold_quantity}
+              </h5>
+              <h3>
+                {detailProduct?.data.data.item.title}
+              </h3>
+              <h1>
+                {formatPriceDetail(detailProduct?.data.data.item.price.amount)}
+                <small>
+                  {formatDecimals(detailProduct?.data.data.item.price.decimals)}
+                </small>
+              </h1>
+            </div>
             <button> Comprar </button>
           </section>
         </div> 
