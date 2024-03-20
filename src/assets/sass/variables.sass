@@ -13,8 +13,15 @@ $marginBig: 32px
 $marginSmall: 16px
 $imgSize: 180px
 $sizePriceTitle: 46px
+$breakpoint-mobile-max: 600px
 
 @mixin container
   display: grid
   grid-template-columns: repeat(12, 1fr)
   gap: 1rem
+
+
+@mixin respond-to($media)
+  @if $media == 'mobile-max'
+    @media (max-width: $breakpoint-mobile-max)
+      @content

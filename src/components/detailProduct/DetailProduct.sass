@@ -1,6 +1,5 @@
 @use "./../../assets/sass/variables.sass"
 
-
 .isLoading 
     @include variables.container
     margin: 10px 0
@@ -21,23 +20,31 @@ body main
         display: grid
         grid-template-columns: repeat(10, 1fr)
         gap: 1rem
+        @include variables.respond-to('mobile-max')
+                grid-column: span 12
         .articleDescription 
             grid-column: span 7
-            section
-                img 
-                    width: 100%
-                div
-                    margin-left: variables.$marginBig
-                h2
-                    font-size: 28px
-                    color: variables.$black
-                    margin-bottom: variables.$marginBig
-                p
-                    font-size: 16px
-                    color: variables.$gray-hard
-                    margin-bottom: variables.$marginBig
+            @include variables.respond-to('mobile-max')
+                grid-column: span 12
+        section
+            img 
+                width: 100%
+            div
+                margin-left: variables.$marginBig
+                @include variables.respond-to('mobile-max')
+                    margin: 20px
+            h2
+                font-size: 28px
+                color: variables.$black
+                margin-bottom: variables.$marginBig
+            p
+                font-size: 16px
+                color: variables.$gray-hard
+                margin-bottom: variables.$marginBig
         .articlePrice
             grid-column: span 3
+            @include variables.respond-to('mobile-max')
+                    grid-column: span 12
             section
                 margin-top: variables.$marginBig
                 display: grid
@@ -45,6 +52,8 @@ body main
                 gap: 1rem
                 .articlePriceDescription
                     grid-column: span 2
+                    @include variables.respond-to('mobile-max')
+                        grid-column: span 3
                 h5
                     font-size: variables.$sizeBreadbrumb
                     margin-bottom: variables.$marginSmall
@@ -67,3 +76,6 @@ body main
                     border-radius: 4px
                     font-size: variables.$sizeParagraph
                     cursor: pointer
+                    @include variables.respond-to('mobile-max')
+                        margin: auto
+                        margin-bottom: 40px

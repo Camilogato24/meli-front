@@ -4,6 +4,9 @@ header
 	@include variables.container
 	background-color: variables.$yellow
 	padding: 10px 50px
+	@include variables.respond-to('mobile-max')
+		padding: 10px 0 
+	color: variables.$gray-hard
 	img 
 		grid-column: 2 / span 1
 		justify-self: center

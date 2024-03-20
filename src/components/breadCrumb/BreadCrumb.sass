@@ -8,6 +8,8 @@
 ul 
     grid-column: 2 / span 12
     display: flex
+    @include variables.respond-to('mobile-max')
+        grid-column: span 12
     li 
         font-size: variables.$sizeBreadbrumb
     .breadcrumb-divider 

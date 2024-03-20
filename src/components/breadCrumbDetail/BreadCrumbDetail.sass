@@ -5,6 +5,8 @@
     margin: 16px 0
     color: variables.$gray-hard
     font-size: variables.$sizeBreadbrumb
+    @include variables.respond-to('mobile-max')
+                grid-column: span 12
     ul
         display: flex
     li 

@@ -4,6 +4,8 @@
 	@include variables.container
 	gap: 0 1rem
 	padding: 0px 50px
+	@include variables.respond-to('mobile-max')
+		padding: 0
 	.item 
 		position: relative
 		display: grid
